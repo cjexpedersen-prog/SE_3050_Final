@@ -4,3 +4,5 @@ Team members
   Zarar Hayee
   Ian Garcia
 <img width="1914" height="499" alt="image" src="https://github.com/user-attachments/assets/cb057aaf-f393-414b-ba73-5848918cf418" />
+<img width="950" height="1024" alt="image" src="https://github.com/user-attachments/assets/c17114e7-8072-42bc-bc31-4dcb5d0685ea" />
+Our application will allow the viewing of Markets, Vendors, and Orders through dynamically generated HTML. With our application a user will be able to filter their search results by a variety of criteria to view both full and specific result lists. Users may view items from their search result for more specific information, and if we have time make edits or additions to the data from the application.
