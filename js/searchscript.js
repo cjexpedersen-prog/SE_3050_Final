@@ -1,7 +1,7 @@
 
 function functionChange(ufn){
         if (ufn=1){
-                document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="fetch(1)">View all products</button>`
+                document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="fetcher(1)">View all products</button>`
         }else if (ufn=2){
                 document.getElementById("qbox").innerHTML=``
         }else if (ufn=3){
@@ -50,7 +50,7 @@ function readsearchT(){
 
 
 
-function fetch(fetchinfo) {
+function fetcher(fetchinfo) {
         if (fetchinfo==1){
                 
         }
