@@ -13,94 +13,55 @@
     <body class="mainpage">
         <!--header section -->
         <div id="header">
-            <h1>Search Marketplace Information</h1>
+            <h1>Search Marketplaced</h1>
         </div>
         <!--searchbox div -->
         <div id="qbox">
             <!--seachbox, used to get results -->
-            <input type="text" id="query" placeholder="Search Tickets"></input>
+            <input type="text" id="query" placeholder="Run Search"></input>
             <button id="search" onclick="gettickets()"></button>
         </div>
         <div class="filters">
-            <h2>Filters</h2>
+            <h2>Search Function</h2>
             <table>
                 <tr>
-                   <td>
-                    <table>
-                        <tr><th><p>Scale</p></th></tr>
-                        <tr>
-                             
-                            <td>
-                                <input type="checkbox" name="sR" id="sRvsm" value="1">
-                                <label for="sRsm" id="sRvsmL">Very Small</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="sR" id="sRsm" value="2">
-                                <label for="sRsm" id="sRsmL">Small</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="sR" id = "sRmed" value="3">
-                                <label for="sRmed" id = "sRmedL">Medium</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="sR" id = "sRlarge" value="4">
-                                <label for="sRlarge" id = "sRlargeL">Large</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="sR" id = "sRvlarge" value="5">
-                                <label for="sRvlarge" id = "uRcritL">Very Large</label>
-                            </td>
-                        </tr>
-                        
-                    </table>
-                   </td>
-                   <td>
-                        <table>
-                            <tr><th><p>Existing issue?</p></th></tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="uR" id="existRyes" value="1">
-                                    <label for="existRyes" id="existRyesL">Yes</label>
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="existRno" id="existRno" value="0">
-                                    <label for="existRno" id="existRnoL">No</label>
-                                </td>
-                            </tr>
-                        </table>
-                   </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <th><p>Urgency</p></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="uR" id="uRlow" value="1">
-                                    <label for="uRlow" id="uRlowL">Low</label>
-                                    <input type="checkbox" name="uR" id="uRmed" value="2">
-                                    <label for="uRmed" id="uRmedL">Medium</label>
-                                    <input type="checkbox" name="uR" id = "uRhi" value="3">
-                                    <label for="uRhi" id = "uRhiL">High</label>
-                                    <input type="checkbox" name="uR" id = "uRcrit" value="4">
-                                    <label for="uRcrit" id = "uRcritL">Critical</label>
-                                </td>
-                            </tr>
-                        </table>
-                    <td>
-                        <table>
-                            <tr><th><p>In progress?</p></th></tr>
-                            <tr>
-                                <td><input type="checkbox" name="uR" id="inprRyes" value="1">
-                                    <label for="inprRyes" id="inprRyesL">Yes</label>
-                                    <input type="checkbox" name="inprRno" id="inprRno" value="0">
-                                    <label for="inprRno" id="inprRnoL">No</label>
-                                </td>
-                            </tr>
-                        </table>          
-                    </td>
+                 <td><input type="radio" id="s1" name="searchf" value="1">
+                 <label for="s1">View all products</label></td>
+                 
+                 <td><input type="radio" id="s2" name="searchf" value="2">
+                 <label for="s2">Search product by keyword</label></td>
+                 
+                 <td><input type="radio" id="s3" name="searchf" value="3">
+                 <label for="s3">Filter product by category and price ceiling</label></td>
+                 <td><input type="radio" id="s4" name="searchf" value="4">
+                 <label for="s4">Find markets by city and show their operating hours</label></td>
+                 
+                 <td><input type="radio" id="s5" name="searchf" value="5">
+                 <label for="s5">List vendors at a chosen market ID</label></td>
+                 <td><input type="radio" id="s6" name="searchf" value="6">
+                 <label for="s6"> Display market contact emails and market types</label></td>
+                 
+                 <td><input type="radio" id="s7" name="searchf" value="7">
+                 <label for="s7">Show low-stock products for restocking (threshold: fewer than 10)</label></td>
+                 <td><input type="radio" id="s8" name="searchf" value="8">
+                 <label for="s8">Display the line items and extended price of a specific order</label></td>
+                 
+                 <td><input type="radio" id="s9" name="searchf" value="9">
+                 <label for="s9">Calculate order totals, including orders without line items</label></td>
+                 <td><input type="radio" id="s10" name="searchf" value="10">
+                 <label for="s10">Revenue by vendor for completed and paid orders only</label></td>
+                 
+                 <td><input type="radio" id="s11" name="searchf" value="11">
+                 <label for="s11">Total paid sales by market, including markets with zero paid sales</label></td>
+                 <td><input type="radio" id="s12" name="searchf" value="12">
+                 <label for="s12">Best-selling products by quantity in completed, paid orders</label></td>
+                 
+                 <td><input type="radio" id="s13" name="searchf" value="13">
+                 <label for="s13">Order counts by status for a dashboard</label></td>
+                 <td><input type="radio" id="s14" name="searchf" value="14">
+                 <label for="s14">Daily revenue trend for completed and paid orders</label></td>
+                 <td><input type="radio" id="s15" name="searchf" value="15">
+                 <label for="s15">Count products and stock units per vendor, including vendors with no products</label></td>
                 </tr>
             </table>
         </div>
