@@ -50,7 +50,7 @@ function readsearchT(){
 
 
 
-function fetcher(fetchinfo) {
+function getdata(fetchinfo) {
         if (fetchinfo==1){
                 console.log('value 1 recieved.');
         };
