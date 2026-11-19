@@ -52,8 +52,8 @@ function readsearchT(){
 
 function fetcher(fetchinfo) {
         if (fetchinfo==1){
-                
-        }
+                console.log('value 1 recieved.');
+        };
     readsearchT();
     console.log(searchdata.scaleU);
         
