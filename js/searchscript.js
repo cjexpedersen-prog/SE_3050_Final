@@ -82,7 +82,7 @@ function submitdata(){
     };
     xhr.open("GET",url, true)
         xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
-        xhr.send(JSON.stringify(data));
+        xhr.send(JSON.stringify(searchdata));
         console.log(xhr.responseText);
 };
 async function trynew(){
