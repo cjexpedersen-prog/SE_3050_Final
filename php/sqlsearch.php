@@ -158,7 +158,7 @@ ORDER BY ProductCount DESC, v.Name;");
  }
     
  exit();
-} 
+#} 
 #catch (Exception $e) {
 #  error_log($e->getMessage());
 #  exit('Something bad happened'); 
