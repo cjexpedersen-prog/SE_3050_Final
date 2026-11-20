@@ -128,8 +128,7 @@ GROUP BY v.VendorID, v.Name
 ORDER BY ProductCount DESC, v.Name;");
   }
   $sresult = $stmt->fetchall();
-   echo $sresult
- echo "ticket recieved at ", $data['submit'];
+   echo $sresult;
  exit();
 } 
 catch (Exception $e) {
