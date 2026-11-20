@@ -17,7 +17,7 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE p.InStockQuantity > 0
-ORDER BY m.Name, p.Name;")
+ORDER BY m.Name, p.Name;");
      $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
    echo json_encode($results);
