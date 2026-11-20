@@ -94,7 +94,7 @@ function submitdata(){
             document.getElementById("lresults").innerText=this.responseText;
         }
     };
-    xhr.open("GET",url, true)
+    xhr.open("POST",url, true)
         xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
         xhr.send(JSON.stringify(searchdata));
         console.log(xhr.responseText);
