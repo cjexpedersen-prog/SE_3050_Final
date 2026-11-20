@@ -1,9 +1,16 @@
-
+let response;
+let rdata;
+let sdata;
+let searchdata ={
+        Sfunc:"0",
+        sterm:"",
+        maxp:"",
+        mnumber:"0",
+        ordernum:"0"
+};
 function functionChange(ufn){
-        console.log(ufn)
         if (ufn==1){
                 document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="getdata(1)">View all products</button>`
-               console.log("event 1")
         }else if (ufn==2){
                 document.getElementById("qbox").innerHTML=`<input type="text" id="query" placeholder="Keyword search"></input><button id="func2b" onClick="getdata(2)">Search by keyword</button>`
         }else if (ufn==3){
@@ -37,13 +44,7 @@ function functionChange(ufn){
 
 
 
-let searchdata ={
-        Sfunc:"0",
-        sterm:"",
-        maxp:"",
-        mnumber:"0",
-        ordernum:"0"
-};
+
 function readsearchT(){
 
     
@@ -53,10 +54,53 @@ function readsearchT(){
 
 
 function getdata(fetchinfo) {
-        if (fetchinfo==1){
-                console.log('value 1 recieved.');
+        searchdata.sfunc=fetchinfo;
+        if (fetchinfo==2){
+                searchdata.sterm = document.getElementById("query").value;
+        }elseif (fetchinfo==3){
+                searchdata.sterm = document.getElementById("query").value;
+                searchdata.maxp = document.getElementById("mnum").value;
+        }elseif (fetchinfo==4){
+                searchdata.sterm = document.getElementById("query").value;
+        }elseif (fetchinfo==5){
+                 searchdata.mnumber = document.getElementById("mnum").value;
+        }elseif (fetchinfo==8){
+                searchdata.ordernum = document.getElementById("mnum").value;
         };
-    readsearchT();
-    console.log(searchdata.scaleU);
+    submitdata();
         
 };
+
+function submitdata(){
+    let url = "../script/sqlcatch.php"
+    getdata();
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState == 4 && xhr.status == 200){
+        document.getElementbyId("lresults").innerHTML='<p id="tester"></p>'
+            document.getElementById("tester").innerText=this.responseText;
+        }
+    };
+    xhr.open("GET",url, true)
+        xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(data));
+        console.log(xhr.responseText);
+};
+async function trynew(){
+    try{
+            response = await fetch("../test.txt");
+            rdata = await response;
+            sdata = await response.responseText;
+            if (!rdata.ok){
+                console.error("Test failed : ",error);
+            }
+            else{
+                console.log(rdata);
+                console.log(sdata);
+                document.getElementById("lresults").textContent=sdata;
+            }
+    }
+    catch (error){
+        console.error("Test failed : ",error);
+    }
+}
