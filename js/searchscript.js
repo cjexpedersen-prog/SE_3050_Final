@@ -86,14 +86,14 @@ function getdata(fetchinfo) {
         
 };
 
-function submitdata(){
+async function submitdata(){
     let url = "../php/sqlsearch.php"
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status == 200){
             
-            sdata = this.responseText;
-              if (!rdata.ok){
+            sdata = xhr.responseText;
+              if (!xhr.ok){
                 console.error("Test failed : ",error);
             }
             else{
