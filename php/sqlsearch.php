@@ -19,7 +19,7 @@ JOIN Vendors AS v ON p.VendorID = v.VendorID
 JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE p.InStockQuantity > 0
 ORDER BY m.Name, p.Name;");
-   $sresult = $stmt->fetchAll();
+   $sresult = $stmt->execute();
    echo json_encode($results);
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
