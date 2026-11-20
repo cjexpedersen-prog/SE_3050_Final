@@ -144,7 +144,7 @@ WHERE o.OrderStatus = 'Completed' AND o.PaymentStatus = 'Paid'
 GROUP BY o.OrderDate
 ORDER BY o.OrderDate;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo $sresult; 
  }elseif ($sfuncv==15){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName,
        COUNT(p.ProductID) AS ProductCount,
