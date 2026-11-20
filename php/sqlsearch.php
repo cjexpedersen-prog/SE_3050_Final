@@ -128,8 +128,8 @@ LEFT JOIN Products AS p ON v.VendorID = p.VendorID
 GROUP BY v.VendorID, v.Name
 ORDER BY ProductCount DESC, v.Name;");
   }
-  
-   echo $sfuncv;
+    $sresult = $stmt->execute();
+   echo $sresult;
  exit();
 } 
 catch (Exception $e) {
