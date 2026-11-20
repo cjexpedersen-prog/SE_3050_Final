@@ -92,8 +92,7 @@ function submitdata(){
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status == 200){
             
-                rdata = await response;
-            sdata = await response.responseText;
+            sdata = this.responseText;
               if (!rdata.ok){
                 console.error("Test failed : ",error);
             }
