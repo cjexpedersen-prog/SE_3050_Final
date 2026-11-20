@@ -76,8 +76,7 @@ function submitdata(){
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status == 200){
-        document.getElementbyId("lresults").innerHTML='<p id="tester"></p>'
-            document.getElementById("tester").innerText=this.responseText;
+            document.getElementById("lresults").innerText=this.responseText;
         }
     };
     xhr.open("GET",url, true)
