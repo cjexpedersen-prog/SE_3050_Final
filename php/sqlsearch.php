@@ -129,7 +129,7 @@ GROUP BY v.VendorID, v.Name
 ORDER BY ProductCount DESC, v.Name;");
   }
     $sresult = $stmt->execute();
-   echo $sresult;
+   echo "resulting data: ",$sresult;
  exit();
 } 
 catch (Exception $e) {
