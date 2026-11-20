@@ -20,7 +20,7 @@ WHERE p.InStockQuantity > 0
 ORDER BY m.Name, p.Name;");
      $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
- echo json_encode($results);
+ echo json_encode($sresult);
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
@@ -28,7 +28,7 @@ WHERE p.Name LIKE :sterm OR p.Category LIKE :sterm
 ORDER BY p.Name;");
   $stmt->bindParam(':sterm',$searcht);
   $sresult = $stmt->fetchAll();
-   echo json_encode($results);
+   echo json_encode($sresult);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
 FROM Products
@@ -37,7 +37,7 @@ ORDER BY Price ASC, Name;");
    $stmt->bindParam(':sterm',$searcht);
    $stmt->bomdParam(':maxp',$maxprice);
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==4){
    $stmt =$pdo -> prepare("SELECT MarketID, Name, City, State, OperationHours, Phone
 FROM Markets
@@ -45,7 +45,7 @@ WHERE City = :sterm
 ORDER BY Name;");
    $stmt->bindParam(':sterm',$searcht);
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==5){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName, v.Phone, v.OperationHours,
        m.Name AS MarketName
@@ -55,7 +55,7 @@ WHERE m.MarketID = :mnumber
 ORDER BY v.Name;");
    $stmt->bindParam(':mnumber',$marketnumber);
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==6){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name, me.Email, mt.Type
 FROM Markets AS m
@@ -63,7 +63,7 @@ LEFT JOIN MarketEmails AS me ON m.MarketID = me.MarketID
 LEFT JOIN MarketTypes AS mt ON m.MarketID = mt.MarketID
 ORDER BY m.MarketID, me.Email, mt.Type;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==7){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName, p.InStockQuantity,
        v.Name AS VendorName
@@ -72,7 +72,7 @@ JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.InStockQuantity < 10
 ORDER BY p.InStockQuantity, p.Name;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==8){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, p.Name AS ProductName,
        oi.Quantity, oi.UnitPrice, oi.Quantity * oi.UnitPrice AS LineTotal
@@ -83,7 +83,7 @@ WHERE o.OrderID = :ordernum
 ORDER BY oi.OrderItemID;");
    $stmt->bomdParam(':ordernum',$ordernumber);
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==9){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus,
        COALESCE(SUM(oi.Quantity * oi.UnitPrice), 0) AS OrderTotal
@@ -92,7 +92,7 @@ LEFT JOIN OrderItems AS oi ON o.OrderID = oi.OrderID
 GROUP BY o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus
 ORDER BY o.OrderDate DESC, o.OrderID DESC;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==10){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName,
        SUM(oi.Quantity * oi.UnitPrice) AS Revenue
@@ -104,7 +104,7 @@ WHERE o.OrderStatus = 'Completed' AND o.PaymentStatus = 'Paid'
 GROUP BY v.VendorID, v.Name
 ORDER BY Revenue DESC, v.Name;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==11){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name AS MarketName,
        COALESCE(SUM(CASE WHEN o.OrderStatus = 'Completed'
@@ -118,7 +118,7 @@ LEFT JOIN Orders AS o ON oi.OrderID = o.OrderID
 GROUP BY m.MarketID, m.Name
 ORDER BY Revenue DESC, m.Name;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==12){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName,
        SUM(oi.Quantity) AS UnitsSold
@@ -135,7 +135,7 @@ FROM Orders
 GROUP BY OrderStatus
 ORDER BY NumberOfOrders DESC;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }elseif ($sfuncv==14){
    $stmt =$pdo -> prepare("SELECT o.OrderDate, SUM(oi.Quantity * oi.UnitPrice) AS DailyRevenue
 FROM Orders AS o
@@ -154,7 +154,7 @@ LEFT JOIN Products AS p ON v.VendorID = p.VendorID
 GROUP BY v.VendorID, v.Name
 ORDER BY ProductCount DESC, v.Name;");
  $sresult = $stmt->fetchAll();
-   echo json_encode($results); 
+   echo json_encode($sresult); 
  }
    echo $results;
  
