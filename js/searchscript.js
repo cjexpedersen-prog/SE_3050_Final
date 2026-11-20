@@ -91,13 +91,24 @@ function submitdata(){
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status == 200){
-            document.getElementById("lresults").innerText=this.responseText;
+            
+                rdata = await response;
+            sdata = await response.responseText;
+              if (!rdata.ok){
+                console.error("Test failed : ",error);
+            }
+            else{
+                console.log(rdata);
+                console.log(sdata);
+                document.getElementById("lresults").textContent=sdata;
+            }
         }
     };
     xhr.open("POST",url, true)
         xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
         xhr.send(JSON.stringify(searchdata));
         console.log(xhr.responseText);
+        
 };
 async function trynew(){
     try{
