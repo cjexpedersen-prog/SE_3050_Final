@@ -1,5 +1,6 @@
 
 function functionChange(ufn){
+        console.log(ufn)
         if (ufn=1){
                 document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="getdata(1)">View all products</button>`
                console.log("event 1")
