@@ -10,7 +10,6 @@ try {
   $pdo = new PDO($dsn, str_replace(array("\r", "\n"), '',file_get_contents('user.txt')), str_replace(array("\r", "\n"), '',file_get_contents('passwd.txt')), $options);
  $data = json_decode( file_get_contents( 'php://input' ), true );
  $sfuncv= $data['Sfunc'];
-  
  if ($sfuncv==1){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName, p.Category, p.Price,
        p.InStockQuantity, v.Name AS VendorName, m.Name AS MarketName
@@ -18,13 +17,14 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE p.InStockQuantity > 0
-ORDER BY m.Name, p.Name;");
-   $sresult = $stmt->execute();
+ORDER BY m.Name, p.Name;")
+     $stmt->execute();
+     $sresult = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
    echo json_encode($results);
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
-WHERE p.Name LIKE %:sterm% OR p.Category LIKE %'sterm'%
+WHERE p.Name LIKE :sterm OR p.Category LIKE :sterm
 ORDER BY p.Name;");
   $stmt->bindParam(':sterm',$searcht);
   $sresult = $stmt->fetchAll();
@@ -41,7 +41,7 @@ ORDER BY Price ASC, Name;");
  }elseif ($sfuncv==4){
    $stmt =$pdo -> prepare("SELECT MarketID, Name, City, State, OperationHours, Phone
 FROM Markets
-WHERE City = ':sterm'
+WHERE City = :sterm
 ORDER BY Name;");
    $stmt->bindParam(':sterm',$searcht);
  $sresult = $stmt->fetchAll();
