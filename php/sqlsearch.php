@@ -27,7 +27,7 @@ JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.Name LIKE %:sterm% OR p.Category LIKE %'sterm'%
 ORDER BY p.Name;");
   $stmt->bindParam(':sterm',$searcht);
-  $sresult = $stmt->execute();
+  $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult;
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
@@ -36,7 +36,7 @@ WHERE Category = :sterm AND Price <= :maxp AND InStockQuantity > 0
 ORDER BY Price ASC, Name;");
    $stmt->bindParam(':sterm',$searcht);
    $stmt->bomdParam(':maxp',$maxprice);
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==4){
    $stmt =$pdo -> prepare("SELECT MarketID, Name, City, State, OperationHours, Phone
@@ -44,7 +44,7 @@ FROM Markets
 WHERE City = ':sterm'
 ORDER BY Name;");
    $stmt->bindParam(':sterm',$searcht);
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==5){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName, v.Phone, v.OperationHours,
@@ -54,7 +54,7 @@ JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE m.MarketID = :mnumber
 ORDER BY v.Name;");
    $stmt->bindParam(':mnumber',$marketnumber);
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==6){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name, me.Email, mt.Type
@@ -62,7 +62,7 @@ FROM Markets AS m
 LEFT JOIN MarketEmails AS me ON m.MarketID = me.MarketID
 LEFT JOIN MarketTypes AS mt ON m.MarketID = mt.MarketID
 ORDER BY m.MarketID, me.Email, mt.Type;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==7){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName, p.InStockQuantity,
@@ -71,7 +71,7 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.InStockQuantity < 10
 ORDER BY p.InStockQuantity, p.Name;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==8){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, p.Name AS ProductName,
@@ -82,7 +82,7 @@ JOIN Products AS p ON oi.ProductID = p.ProductID
 WHERE o.OrderID = :ordernum
 ORDER BY oi.OrderItemID;");
    $stmt->bomdParam(':ordernum',$ordernumber);
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==9){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus,
@@ -91,7 +91,7 @@ FROM Orders AS o
 LEFT JOIN OrderItems AS oi ON o.OrderID = oi.OrderID
 GROUP BY o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus
 ORDER BY o.OrderDate DESC, o.OrderID DESC;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==10){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName,
@@ -103,7 +103,7 @@ JOIN Orders AS o ON oi.OrderID = o.OrderID
 WHERE o.OrderStatus = 'Completed' AND o.PaymentStatus = 'Paid'
 GROUP BY v.VendorID, v.Name
 ORDER BY Revenue DESC, v.Name;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==11){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name AS MarketName,
@@ -117,7 +117,7 @@ LEFT JOIN OrderItems AS oi ON p.ProductID = oi.ProductID
 LEFT JOIN Orders AS o ON oi.OrderID = o.OrderID
 GROUP BY m.MarketID, m.Name
 ORDER BY Revenue DESC, m.Name;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==12){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName,
@@ -134,7 +134,7 @@ LIMIT 10;");
 FROM Orders
 GROUP BY OrderStatus
 ORDER BY NumberOfOrders DESC;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==14){
    $stmt =$pdo -> prepare("SELECT o.OrderDate, SUM(oi.Quantity * oi.UnitPrice) AS DailyRevenue
@@ -143,7 +143,7 @@ JOIN OrderItems AS oi ON o.OrderID = oi.OrderID
 WHERE o.OrderStatus = 'Completed' AND o.PaymentStatus = 'Paid'
 GROUP BY o.OrderDate
 ORDER BY o.OrderDate;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }elseif ($sfuncv==15){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName,
@@ -153,7 +153,7 @@ FROM Vendors AS v
 LEFT JOIN Products AS p ON v.VendorID = p.VendorID
 GROUP BY v.VendorID, v.Name
 ORDER BY ProductCount DESC, v.Name;");
- $sresult = $stmt->execute();
+ $sresult = $stmt->fetchAll();
    echo "resulting data: ",$sresult; 
  }
     
