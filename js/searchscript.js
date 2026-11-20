@@ -56,17 +56,17 @@ function readsearchT(){
 function getdata(fetchinfo) {
         searchdata.sfunc=fetchinfo;
         if (fetchinfo==2){
-                searchdata.sterm = document.getElementById("query").value;
-        }elseif (fetchinfo==3){
-                searchdata.sterm = document.getElementById("query").value;
-                searchdata.maxp = document.getElementById("mnum").value;
-        }elseif (fetchinfo==4){
-                searchdata.sterm = document.getElementById("query").value;
-        }elseif (fetchinfo==5){
-                 searchdata.mnumber = document.getElementById("mnum").value;
-        }elseif (fetchinfo==8){
-                searchdata.ordernum = document.getElementById("mnum").value;
-        };
+                searchdata.sterm = document.getElementById("query").value
+        } else if (fetchinfo==3){
+                searchdata.sterm = document.getElementById("query").value
+                searchdata.maxp = document.getElementById("mnum").value
+        }else if (fetchinfo==4){
+                searchdata.sterm = document.getElementById("query").value
+        }else if (fetchinfo==5){
+                 searchdata.mnumber = document.getElementById("mnum").value
+        }else if (fetchinfo==8){
+                searchdata.ordernum = document.getElementById("mnum").value
+        }
     submitdata();
         
 };
