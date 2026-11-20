@@ -23,20 +23,20 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.Name LIKE %:sterm% OR p.Category LIKE %'sterm'%
 ORDER BY p.Name;");
-  $stmt->bindParam(':sterm',$searcht)
+  $stmt->bindParam(':sterm',$searcht);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
 FROM Products
 WHERE Category = :sterm AND Price <= :maxp AND InStockQuantity > 0
 ORDER BY Price ASC, Name;");
-   $stmt->bindParam(':sterm',$searcht)
-   $stmt->bomdParam(':maxp',$maxprice)
+   $stmt->bindParam(':sterm',$searcht);
+   $stmt->bomdParam(':maxp',$maxprice);
   }elseif ($sfuncv==4){
    $stmt =$pdo -> prepare("SELECT MarketID, Name, City, State, OperationHours, Phone
 FROM Markets
 WHERE City = ':sterm'
 ORDER BY Name;");
-   $stmt->bindParam(':sterm',$searcht)
+   $stmt->bindParam(':sterm',$searcht);
   }elseif ($sfuncv==5){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName, v.Phone, v.OperationHours,
        m.Name AS MarketName
@@ -44,7 +44,7 @@ FROM Vendors AS v
 JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE m.MarketID = :mnumber
 ORDER BY v.Name;");
-   $stmt->bindParam(':mnumber',$marketnumber)
+   $stmt->bindParam(':mnumber',$marketnumber);
   }elseif ($sfuncv==6){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name, me.Email, mt.Type
 FROM Markets AS m
@@ -66,7 +66,7 @@ JOIN OrderItems AS oi ON o.OrderID = oi.OrderID
 JOIN Products AS p ON oi.ProductID = p.ProductID
 WHERE o.OrderID = :ordernum
 ORDER BY oi.OrderItemID;");
-   $stmt->bomdParam(':ordernum',$ordernumber)
+   $stmt->bomdParam(':ordernum',$ordernumber);
   }elseif ($sfuncv==9){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus,
        COALESCE(SUM(oi.Quantity * oi.UnitPrice), 0) AS OrderTotal
