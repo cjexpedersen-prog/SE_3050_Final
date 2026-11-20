@@ -1,5 +1,5 @@
 <?php
-$dsn = "mysql:host=localhost; dbname=marketmanager";
+$dsn = "mysql:host=localhost; dbname=marketplacem";
 
 $options = [
   PDO::ATTR_EMULATE_PREPARES   => false, // Disable emulation mode for "real" prepared statements
