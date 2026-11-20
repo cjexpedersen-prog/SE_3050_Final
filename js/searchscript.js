@@ -2,6 +2,7 @@
 function functionChange(ufn){
         if (ufn=1){
                 document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="getdata(1)">View all products</button>`
+               console.log("event 1")
         }else if (ufn=2){
                 document.getElementById("qbox").innerHTML=`<input type="text" id="query" placeholder="Keyword search"></input><button id="func2b" onClick="getdata(2)">Search by keyword<button>`
         }else if (ufn=3){
