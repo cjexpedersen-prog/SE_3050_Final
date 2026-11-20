@@ -121,7 +121,7 @@ async function trynew(){
             else{
                 console.log(rdata);
                 console.log(sdata);
-                document.getElementById("lresults").textContent=sdata;
+                document.getElementById("lsresults").textContent=sdata;
             }
     }
     catch (error){
