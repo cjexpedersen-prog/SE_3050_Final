@@ -12,8 +12,6 @@ try {
  $sfuncv= $data['Sfunc'];
   
  if ($sfuncv==1){
-   echo $data;
-  exit('end test1');
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName, p.Category, p.Price,
        p.InStockQuantity, v.Name AS VendorName, m.Name AS MarketName
 FROM Products AS p
