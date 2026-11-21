@@ -124,6 +124,8 @@ WHERE o.OrderStatus = 'Completed' AND o.PaymentStatus = 'Paid'
 GROUP BY p.ProductID, p.Name
 ORDER BY UnitsSold DESC, p.Name
 LIMIT 10;");
+    $stmt->execute();
+     $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
   }elseif ($sfuncv==13){
    $stmt =$pdo -> prepare("SELECT OrderStatus, COUNT(*) AS NumberOfOrders
 FROM Orders
