@@ -88,7 +88,7 @@ function displaydata(){
                 displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`
         }
                 displaydata+="</table>"
-                document.getElementById("l;results").innerHTML=displaydata;
+                document.getElementById("lresults").innerHTML=displaydata;
         } else if (displayform==2){
                 
         }else if (displayform==3){
