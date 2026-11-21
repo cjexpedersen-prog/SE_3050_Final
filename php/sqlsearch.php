@@ -20,7 +20,6 @@ WHERE p.InStockQuantity > 0
 ORDER BY m.Name, p.Name;");
      $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
- echo json_encode($sresult);
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
@@ -28,7 +27,6 @@ WHERE p.Name LIKE :sterm OR p.Category LIKE :sterm
 ORDER BY p.Name;");
   $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   echo json_encode($sresult);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
 FROM Products
@@ -45,7 +43,6 @@ WHERE City = :sterm
 ORDER BY Name;");
    $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   echo json_encode($sresult); 
  }elseif ($sfuncv==5){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName, v.Phone, v.OperationHours,
        m.Name AS MarketName
@@ -55,7 +52,6 @@ WHERE m.MarketID = :mnumber
 ORDER BY v.Name;");
    $$stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   echo json_encode($sresult); 
  }elseif ($sfuncv==6){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name, me.Email, mt.Type
 FROM Markets AS m
@@ -155,7 +151,7 @@ ORDER BY ProductCount DESC, v.Name;");
 $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }
-   echo $results;
+ echo json_encode($sresult);
  
     
  exit();
