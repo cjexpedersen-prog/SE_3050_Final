@@ -80,7 +80,8 @@ function displayeddata(){
                 displaydata ='<table><tr><th>Category</th><th>In stock Quantity</th><th>Market Name</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
         } else if (displayform==2){
-                console.log("show 2")
+                displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==3){
                 console.log("show 3")
         }else if (displayform==4){
