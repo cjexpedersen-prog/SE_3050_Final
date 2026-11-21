@@ -77,7 +77,8 @@ function getdata(fetchinfo) {
     submitdata(fetchinfo);
         
 };
-function displaydata(displayform){
+function displaydata(){
+        displayform= Number(searchMenu.value)
         ldata = JSON.parse(sdata);
         if (displayform==1){
                 displaydata ='<table><tr><th>Category</th><th>In stock Quantity:</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
