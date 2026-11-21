@@ -26,8 +26,8 @@ ORDER BY m.Name, p.Name;");
      $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  } elseif ($sfuncv==2){ 
-   $sterm1 = "%" . $stearcht . "%";
-   $sterm2 = "%" . $stearcht . "%";
+   $sterm1 = "%" . $searcht . "%";
+   $sterm2 = "%" . $searcht . "%";
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
