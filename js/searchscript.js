@@ -101,7 +101,7 @@ function displayeddata(){
                 displaydata ='<table><tr><th>Market ID=</th><th>Name</th><th>State/th><th>Operation Hours</th><th>Phone Number</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.Name}</td><td>${i.State}</td><td>${i.OperationHours}</td><td>${i.Phone}</td><tr>`}
         }else if (displayform==5){
-                displaydata ='<table><tr><th>Vendor ID=</th><th>Vendor Name</th><th>Phone Number</th><th>Operation Hours</th><th>/th>Market Name</tr>'
+                displaydata ='<table><tr><th>Vendor ID</th><th>Vendor Name</th><th>Phone Number</th><th>Operation Hours</th><th>Market Name</tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.VendorID}</td><td>${i.VendorName}</td><td>${i.Phone}</td><td>${i.OperationHours}</td><td>${i.MarketName}</td><tr>`}
                 
         }else if (displayform==6){
