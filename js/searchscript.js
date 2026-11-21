@@ -1,6 +1,7 @@
 let response;
 let rdata;
 let sdata;
+let ldata;
 let searchdata ={
         Sfunc:"1",
         sterm:"",
@@ -73,10 +74,47 @@ function getdata(fetchinfo) {
         }else if (fetchinfo==8){
                 searchdata.ordernum = document.getElementById("mnum").value
         }
-    submitdata();
+    submitdata(fetchinfo);
         
 };
-
+function displaydata(displayform){
+        ldata = JSON.parse(sdata);
+        if (displayform==1){
+                displaydata ='<table><tr><th>Category</th><th>In stock Quantity:</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
+        for(let i of ldata){
+                displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`
+        }
+                displaydata+="</table>"
+                document.getElementById("l;results").innerHTML=displaydata;
+        } else if (displayform==2){
+                
+        }else if (displayform==3){
+                
+        }else if (displayform==4){
+                
+        }else if (displayform==5){
+                
+        }else if (displayform==6){
+                
+        }else if (displayform==7){
+                
+        }else if (displayform==8){
+                
+        }else if (displayform==10){
+                
+        }else if (displayform==11){
+                
+        }else if (displayform==12){
+                
+        }else if (displayform==13){
+                
+        }else if (displayform==14){
+                
+        }else if (displayform==115){
+                
+        }
+        
+};
 async function submitdata(){
     let url = "../php/sqlsearch.php"
     let xhr = new XMLHttpRequest();
@@ -86,6 +124,7 @@ async function submitdata(){
                 console.log(rdata);
                 console.log(sdata);
                 document.getElementById("lresults").textContent=sdata;
+                displaydata();
             }
         }
     xhr.open("POST",url, true)
