@@ -83,7 +83,7 @@ function displayeddata(){
                 displaydata+="</table>"
                 document.getElementById("lresults").innerHTML=displaydata;
         } else if (displayform==2){
-                console.log("show 2)
+                console.log("show 2")
         }else if (displayform==3){
                 console.log("show 3")
         }else if (displayform==4){
