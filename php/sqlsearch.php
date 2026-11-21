@@ -31,7 +31,7 @@ ORDER BY m.Name, p.Name;");
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
-WHERE p.Name :searcht1 OR p.Category LIKE :searcht2
+WHERE p.Name LIKE :searcht1 OR p.Category LIKE :searcht2
 ORDER BY p.Name;");
   $stmt->execute([':searcht1' =>$sterm1, ':searcht2' =>$sterm2]);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
