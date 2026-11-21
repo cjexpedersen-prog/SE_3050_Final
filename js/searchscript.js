@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function functionChange(ufn){
-        document.Sfunc = String(ufn);
         if (ufn==1){
                 document.getElementById("qbox").innerHTML=`<button id="func1b" onClick="getdata(1)">View all products</button>`
                console.log("event 1")
@@ -84,31 +83,33 @@ function displayeddata(){
                 displaydata+="</table>"
                 document.getElementById("lresults").innerHTML=displaydata;
         } else if (displayform==2){
-                
+                console.log("show 2)
         }else if (displayform==3){
-                
+                console.log("show 3")
         }else if (displayform==4){
-                
+                console.log("show 4")
         }else if (displayform==5){
-                
+                console.log("show 5")
         }else if (displayform==6){
-                
+                console.log("show 6")
         }else if (displayform==7){
-                
+                console.log("show 7")
         }else if (displayform==8){
-                
+                console.log("show 8")
+        }else if (displayform==9){
+                console.log("show 9")       
         }else if (displayform==10){
-                
+               console.log("show 10")
         }else if (displayform==11){
-                
+                console.log("show 11")
         }else if (displayform==12){
-                
+               console.log("show 12")
         }else if (displayform==13){
-                
+              console.log("show 13")
         }else if (displayform==14){
-                
+               console.log("show 14")
         }else if (displayform==115){
-                
+               console.log("show 15")
         }
         
 };
