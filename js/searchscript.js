@@ -88,21 +88,21 @@ function displayeddata(){
         }else if (displayform==5){
                 console.log("show 5")
         }else if (displayform==6){
-                  displaydata ='<table><tr><th>Market ID</th><th>Name</th><th>Market Name</th><th>Email Address</th><th>Type</th></tr>';
+                  displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Email Address</th><th>Type</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.Name}</td><td>${i.Email}</td><td>${i.Type}</td><tr>`}
         }else if (displayform==7){
                 displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>In stock Quantity</th><th>Vendor Name</th></tr>'
-        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td>><td>${i.ProductName}</td><td>${i.InStockQuantity}</td><td>${i.VendorName}</td><tr>`}
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.InStockQuantity}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==8){
                 console.log("show 8")
         }else if (displayform==9){
                 displaydata ='<table><tr><th>Order ID</th><th>Order Date</th><th>Payment Status</th><th>Order Total</th></tr>'
                  for(let i of ldata){displaydata+=`<tr><td>${i.OrderID}</td><td>${i.OrderDate}</td><td>${i.OrderStatus}</td><td>${i.PaymentStatus}</td><td>${i.OrderTotal}</td><tr>`}
         }else if (displayform==10){
-                displaydata ='<table><tr><th>Vendor ID</th><th>Vendor Name</th><th>Market Name</th><th>Revenue</th></tr>';
+                displaydata ='<table><tr><th>Vendor ID</th><th>Market Name</th><th>Revenue</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.VendorID}</td><td>${i.VendorName}</td><td>${i.Revenue}</td><tr>`}
         }else if (displayform==11){
-              displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Market Name</th><th>Revenue</th></tr>';
+              displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Revenue</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.MarketName}</td><td>${i.Revenue}</td><tr>`}
         }else if (displayform==12){
               
