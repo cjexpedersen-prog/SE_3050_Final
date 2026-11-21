@@ -56,7 +56,7 @@ function functionChange(ufn){
 
 function getdata(fetchinfo) {
         lastcall=fetchinfo;
-        searchdata.sfunc=fetchinfo;
+        searchdata.Sfunc=fetchinfo;
         if (fetchinfo==2){
                 searchdata.sterm = document.getElementById("query").value
         } else if (fetchinfo==3){
