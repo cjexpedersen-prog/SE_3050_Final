@@ -25,6 +25,7 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.Name LIKE :sterm OR p.Category LIKE :sterm
 ORDER BY p.Name;");
+  $stmt->bindParam(':sterm',$searcht);
   $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
    } elseif ($sfuncv==3){
@@ -41,6 +42,7 @@ $stmt->execute();
 FROM Markets
 WHERE City = :sterm
 ORDER BY Name;");
+   $stmt->bindParam(':sterm',$searcht);
    $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==5){
@@ -50,6 +52,7 @@ FROM Vendors AS v
 JOIN Markets AS m ON v.MarketID = m.MarketID
 WHERE m.MarketID = :mnumber
 ORDER BY v.Name;");
+   $stmt->bindParam(':mnumber',$mnumber);
    $$stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==6){
