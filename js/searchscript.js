@@ -77,10 +77,8 @@ function displayeddata(){
         displayform=lastcall;
         ldata = JSON.parse(sdata);
         if (displayform==1){
-                displaydata ='<table><tr><th>Category</th><th>In stock Quantity:</th><th>Market Name</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
+                displaydata ='<table><tr><th>Category</th><th>In stock Quantity</th><th>Market Name</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
-                displaydata+="</table>"
-                document.getElementById("lresults").innerHTML=displaydata;
         } else if (displayform==2){
                 console.log("show 2")
         }else if (displayform==3){
@@ -90,28 +88,36 @@ function displayeddata(){
         }else if (displayform==5){
                 console.log("show 5")
         }else if (displayform==6){
-                console.log("show 6")
-                
+                  displaydata ='<table><tr><th>Market ID</th><th>Name</th><th>Market Name</th><th>Email Address</th><th>Type</th></tr>';
+                for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.Name}</td><td>${i.Email}</td><td>${i.Type}</td><tr>`}
         }else if (displayform==7){
-                console.log("show 7")
+                displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>In stock Quantity</th><th>Vendor Name</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td>><td>${i.ProductName}</td><td>${i.InStockQuantity}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==8){
                 console.log("show 8")
         }else if (displayform==9){
-                console.log("show 9")       
+                displaydata ='<table><tr><th>Order ID</th><th>Order Date</th><th>Payment Status</th><th>Order Total</th></tr>'
+                 for(let i of ldata){displaydata+=`<tr><td>${i.OrderID}</td><td>${i.OrderDate}</td><td>${i.OrderStatus}</td><td>${i.PaymentStatus}</td><td>${i.OrderTotal}</td><tr>`}
         }else if (displayform==10){
-               console.log("show 10")
+                displaydata ='<table><tr><th>Vendor ID</th><th>Vendor Name</th><th>Market Name</th><th>Revenue</th></tr>';
+                for(let i of ldata){displaydata+=`<tr><td>${i.VendorID}</td><td>${i.VendorName}</td><td>${i.Revenue}</td><tr>`}
         }else if (displayform==11){
-                console.log("show 11")
+              displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Market Name</th><th>Revenue</th></tr>';
+                for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.MarketName}</td><td>${i.Revenue}</td><tr>`}
         }else if (displayform==12){
-               console.log("show 12")
+              
         }else if (displayform==13){
-              console.log("show 13")
+              displaydata ='<table><tr><th>Order Status</th><th>Total Number</th></tr>';
+                for(let i of ldata){displaydata+=`<tr><td>${i.OrderStatus}</td><td>${i.NumberOfOrders}</td><tr>`}
         }else if (displayform==14){
-               console.log("show 14")
-        }else if (displayform==115){
-               console.log("show 15")
+               displaydata ='<table><tr><th>Order Date</th><th>Daily Revenue</th></tr>'
+                 for(let i of ldata){displaydata+=`<tr><td>${i.OrderDate}</td><td>${i.DailyRevenue}</td><tr>`}
+        }else if (displayform==15){
+               displaydata ='<table><tr><th>Vendor ID</th><th>Vendor Name</th><th>Product Count</th><th>Total Stock Units</th></tr>';
+                for(let i of ldata){displaydata+=`<tr><td>${i.VendorID}</td><td>${i.VendorName}</td><td>${i.ProductCount}</td><td>${i.TotalStockUnits}</td><tr>`}
         }
-        
+         displaydata+="</table>"
+        document.getElementById("lresults").innerHTML=displaydata;
 };
 async function submitdata(){
     let url = "../php/sqlsearch.php"
