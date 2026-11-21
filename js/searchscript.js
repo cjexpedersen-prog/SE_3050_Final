@@ -2,6 +2,7 @@ let response;
 let rdata;
 let sdata;
 let ldata;
+let lastcall;
 let searchdata ={
         Sfunc:"1",
         sterm:"",
@@ -61,6 +62,7 @@ function readsearchT(){
 
 
 function getdata(fetchinfo) {
+        lastcall=fetchinfo;
         searchdata.sfunc=fetchinfo;
         if (fetchinfo==2){
                 searchdata.sterm = document.getElementById("query").value
@@ -78,8 +80,7 @@ function getdata(fetchinfo) {
         
 };
 function displaydata(){
-        const searchMenu = document.getElementById("searchf");
-        displayform= Number(searchMenu.value)
+        displayform=lastcall;
         ldata = JSON.parse(sdata);
         if (displayform==1){
                 displaydata ='<table><tr><th>Category</th><th>In stock Quantity:</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
