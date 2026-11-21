@@ -53,12 +53,6 @@ function functionChange(ufn){
         }
 }
 
-function readsearchT(){
-
-    
-    
-}
-
 
 
 function getdata(fetchinfo) {
@@ -79,7 +73,7 @@ function getdata(fetchinfo) {
     submitdata(fetchinfo);
         
 };
-function displaydata(){
+function displayeddata(){
         displayform=lastcall;
         ldata = JSON.parse(sdata);
         if (displayform==1){
@@ -127,7 +121,7 @@ async function submitdata(){
                 console.log(rdata);
                 console.log(sdata);
                 document.getElementById("lresults").textContent=sdata;
-                displaydata();
+                displayeddata();
             }
         }
     xhr.open("POST",url, true)
