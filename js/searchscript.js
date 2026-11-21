@@ -1,4 +1,3 @@
-HEAD
 let response;
 let rdata;
 let sdata;
