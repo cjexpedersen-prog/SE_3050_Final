@@ -78,6 +78,7 @@ function getdata(fetchinfo) {
         
 };
 function displaydata(){
+        const searchMenu = document.getElementById("searchf");
         displayform= Number(searchMenu.value)
         ldata = JSON.parse(sdata);
         if (displayform==1){
