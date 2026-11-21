@@ -65,7 +65,7 @@ function getdata(fetchinfo) {
                         return;
                 }
                 searchdata.sterm = document.getElementById("query").value
-                if (isNaN(document.getElementById("mnum").valueAsNumber)){
+                if (isNaN(document.getElementById("maxp").valueAsNumber)){
                         searchdata.maxp=999;
                 }else{
                 searchdata.maxp = document.getElementById("mnum").valueAsNumber};
@@ -92,7 +92,7 @@ function displayeddata(){
         for(let i of ldata){displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
         } else if (displayform==2){
                 displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
-        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.Name}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==3){
                 console.log("show 3")
         }else if (displayform==4){
