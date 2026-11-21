@@ -10,6 +10,11 @@ $options = [
   $pdo = new PDO($dsn, str_replace(array("\r", "\n"), '',file_get_contents('user.txt')), str_replace(array("\r", "\n"), '',file_get_contents('passwd.txt')), $options);
  $data = json_decode( file_get_contents( 'php://input' ), true );
  $sfuncv= $data['Sfunc'];
+$searcht=$data['sterm'];
+$maxp=$data['maxp'];
+$mnumber=$data['mnumber'];
+$ordernum=$data['ordernum'];
+
  if ($sfuncv==1){
    $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name AS ProductName, p.Category, p.Price,
        p.InStockQuantity, v.Name AS VendorName, m.Name AS MarketName
@@ -76,7 +81,7 @@ JOIN OrderItems AS oi ON o.OrderID = oi.OrderID
 JOIN Products AS p ON oi.ProductID = p.ProductID
 WHERE o.OrderID = :ordernum
 ORDER BY oi.OrderItemID;");
-   $stmt->execute();
+   $stmt->execute([ordernum]);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==9){
    $stmt =$pdo -> prepare("SELECT o.OrderID, o.OrderDate, o.OrderStatus, o.PaymentStatus,
