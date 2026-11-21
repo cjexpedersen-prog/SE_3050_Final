@@ -4,7 +4,7 @@ let sdata;
 let ldata;
 let lastcall;
 let searchdata ={
-        Sfunc:"1",
+        Sfunc:"6",
         sterm:"",
         maxp:"",
         mnumber:"0",
@@ -73,13 +73,12 @@ function getdata(fetchinfo) {
         
 };
 function displayeddata(){
+        displaydata="";
         displayform=lastcall;
         ldata = JSON.parse(sdata);
         if (displayform==1){
                 displaydata ='<table><tr><th>Category</th><th>In stock Quantity:</th><th>Market Name</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
-        for(let i of ldata){
-                displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`
-        }
+        for(let i of ldata){displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
                 displaydata+="</table>"
                 document.getElementById("lresults").innerHTML=displaydata;
         } else if (displayform==2){
@@ -92,6 +91,7 @@ function displayeddata(){
                 console.log("show 5")
         }else if (displayform==6){
                 console.log("show 6")
+                
         }else if (displayform==7){
                 console.log("show 7")
         }else if (displayform==8){
