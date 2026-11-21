@@ -34,7 +34,7 @@ function functionChange(ufn){
         }else if (ufn==7){
                 document.getElementById("qbox").innerHTML=`<button id="func7b" onClick="getdata(7)">View items in need of restock</button>`
         }else if (ufn==8){
-                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1001" max="1030" step="1" placeholder="Order ID"><button id="func8b" onClick="getdata(8)">View Order Information</button></div>`
+                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1001" max="1030" step="1" value="1001"><button id="func8b" onClick="getdata(8)">View Order Information</button></div>`
         }else if (ufn==9){
                 document.getElementById("qbox").innerHTML=`<button id="func9b" onClick="getdata(9)">View Order totals</button>`
         }else if (ufn==10){
@@ -61,7 +61,7 @@ function getdata(fetchinfo) {
                 searchdata.sterm = document.getElementById("query").value
         } else if (fetchinfo==3){
                 searchdata.sterm = document.getElementById("query").value
-                searchdata.maxp = document.getElementById("mnum").value
+                searchdata.maxp = document.getElementById("mnum").valueAsNumber
         }else if (fetchinfo==4){
                 searchdata.sterm = document.getElementById("query").value
         }else if (fetchinfo==5){
