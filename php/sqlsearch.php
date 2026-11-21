@@ -6,7 +6,7 @@ $options = [
   PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Disable errors in the form of exceptions
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // Make the default fetch be an associative array
 ];
-try {
+//try {
   $pdo = new PDO($dsn, str_replace(array("\r", "\n"), '',file_get_contents('user.txt')), str_replace(array("\r", "\n"), '',file_get_contents('passwd.txt')), $options);
  $data = json_decode( file_get_contents( 'php://input' ), true );
  $sfuncv= $data['Sfunc'];
@@ -157,10 +157,10 @@ $stmt->execute();
  
     
  exit();
-} 
-catch (Exception $e) {
-  error_log($e->getMessage());
-  exit('Something bad happened'); 
-}
+//} 
+//catch (Exception $e) {
+//  error_log($e->getMessage());
+ // exit('Something bad happened'); 
+//}
 
 ?>
