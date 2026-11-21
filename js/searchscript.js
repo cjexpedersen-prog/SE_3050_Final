@@ -96,7 +96,7 @@ function displayeddata(){
         }else if (displayform==8){
                 console.log("show 8")
         }else if (displayform==9){
-                displaydata ='<table><tr><th>Order ID</th><th>Order Date</th><th>Payment Status</th><th>Order Total</th></tr>'
+                displaydata ='<table><tr><th>Order ID</th><th>Order Date</th><th>Payment Status</th><th>Order Status</th><th>Order Total</th></tr>'
                  for(let i of ldata){displaydata+=`<tr><td>${i.OrderID}</td><td>${i.OrderDate}</td><td>${i.OrderStatus}</td><td>${i.PaymentStatus}</td><td>${i.OrderTotal}</td><tr>`}
         }else if (displayform==10){
                 displaydata ='<table><tr><th>Vendor ID</th><th>Market Name</th><th>Revenue</th></tr>';
