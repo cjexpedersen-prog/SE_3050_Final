@@ -6,9 +6,9 @@ let lastcall;
 let searchdata ={
         Sfunc:"6",
         sterm:"",
-        maxp:"",
-        mnumber:"0",
-        ordernum:"0"
+        maxp:"99",
+        mnumber:"1",
+        ordernum:"1001"
 };
 
 
@@ -89,25 +89,30 @@ function displayeddata(){
         displayform=lastcall;
         ldata = JSON.parse(sdata);
         if (displayform==1){
-                displaydata ='<table><tr><th>Category</th><th>In stock Quantity</th><th>Market Name</th><th>Price</th><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
+                displaydata ='<table><tr><th>Category</th><th>In stock Quantity</th><th>Market Name</th><th>Price</th><th>Product ID</th><th>Product Name</th><th>Vendor Name</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.Category}</td><td>${i.InStockQuantity}</td><td>${i.MarketName}</td><td>${i.Price}</td><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.VendorName}</td><tr>`}
         } else if (displayform==2){
-                displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>Vendor Name</th></tr>'
+                displaydata ='<table><tr><th>Product ID</th><th>Product Name</th><th>Vendor Name</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.Name}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==3){
-                console.log("show 3")
+                displaydata ='<table><tr><th>Product ID</th><th>Name</th><th>Price</th><th>In Stock Quantity</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.Name}</td><td>${i.Price}</td><td>${i.InStockQuantity}</td><tr>`}
         }else if (displayform==4){
-                console.log("show 4")
+                displaydata ='<table><tr><th>Market ID=</th><th>Name</th><th>State/th><th>Operation Hours</th><th>Phone Number</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.Name}</td><td>${i.State}</td><td>${i.OperationHours}</td><td>${i.Phone}</td><tr>`}
         }else if (displayform==5){
-                console.log("show 5")
+                displaydata ='<table><tr><th>Vendor ID=</th><th>Vendor Name</th><th>Phone Number</th><th>Operation Hours</th><th>/th>Market Name</tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.VendorID}</td><td>${i.VendorName}</td><td>${i.Phone}</td><td>${i.OperationHours}</td><td>${i.MarketName}</td><tr>`}
+                
         }else if (displayform==6){
                   displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Email Address</th><th>Type</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.Name}</td><td>${i.Email}</td><td>${i.Type}</td><tr>`}
         }else if (displayform==7){
-                displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>In stock Quantity</th><th>Vendor Name</th></tr>'
+                displaydata ='<table><tr><th>Product ID</th><th>Product Name</th><th>In stock Quantity</th><th>Vendor Name</th></tr>'
         for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.InStockQuantity}</td><td>${i.VendorName}</td><tr>`}
         }else if (displayform==8){
-                console.log("show 8")
+                 displaydata ='<table><tr><th>Order ID</th><th>Order Name</th><th>Order Status</th><th>Product Name/th><th>Quantity</th><th>Unit Price</th><th>Line Total</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.OrderID}</td><td>${i.OrderDate}</td><td>${i.OrderStatus}</td><td>${i.ProductName}</td><td>${i.Quantity}</td><td>${i.UnitPrice}</td><td>${i.LineTotal}</td><tr>`}
         }else if (displayform==9){
                 displaydata ='<table><tr><th>Order ID</th><th>Order Date</th><th>Payment Status</th><th>Order Status</th><th>Order Total</th></tr>'
                  for(let i of ldata){displaydata+=`<tr><td>${i.OrderID}</td><td>${i.OrderDate}</td><td>${i.OrderStatus}</td><td>${i.PaymentStatus}</td><td>${i.OrderTotal}</td><tr>`}
