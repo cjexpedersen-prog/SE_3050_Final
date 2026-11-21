@@ -23,9 +23,9 @@ ORDER BY m.Name, p.Name;");
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
-WHERE p.Name LIKE ? OR p.Category LIKE ?
+WHERE p.Name LIKE :search OR p.Category LIKE :search
 ORDER BY p.Name;");
-  $stmt->execute($searcht);
+  $stmt->execute(':search'=>$searcht);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
