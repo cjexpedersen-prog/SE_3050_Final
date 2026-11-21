@@ -62,7 +62,7 @@ function getdata(fetchinfo) {
         } else if (fetchinfo==3){
                 if (searchdata.sterm = document.getElementById("query").value==''){
                         window.alert('The search box may not be empty.');
-                        break;
+                        return;
                 }
                 searchdata.sterm = document.getElementById("query").value
                 if (isNaN(document.getElementById("mnum").valueAsNumber)){
@@ -72,7 +72,7 @@ function getdata(fetchinfo) {
         }else if (fetchinfo==4){
                 if (searchdata.sterm = document.getElementById("query").value==''){
                         window.alert('The search box may not be empty.');
-                        break;
+                        return;;
                 }
                 searchdata.sterm = document.getElementById("query").value
         }else if (fetchinfo==5){
@@ -81,7 +81,7 @@ function getdata(fetchinfo) {
                 searchdata.ordernum = document.getElementById("mnum").value
         }
     submitdata();
-        
+        return;
 };
 function displayeddata(){
         displaydata="";
