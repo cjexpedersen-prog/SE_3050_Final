@@ -25,12 +25,15 @@ WHERE p.InStockQuantity > 0
 ORDER BY m.Name, p.Name;");
      $stmt->execute();
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
- } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
+ } elseif ($sfuncv==2){ 
+   $sterm1 = "%" . $stearcht . "%";
+   $sterm2 = "%" . $stearcht . "%";
+   $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
-WHERE p.Name LIKE %:searcht1% OR p.Category LIKE %:searcht2%
+WHERE p.Name :searcht1 OR p.Category LIKE :searcht2
 ORDER BY p.Name;");
-  $stmt->execute([':searcht1' =>$searcht, ':searcht2' =>$searcht]);
+  $stmt->execute([':searcht1' =>$sterm1, ':searcht2' =>$sterm2]);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
