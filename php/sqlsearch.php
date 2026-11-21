@@ -25,7 +25,7 @@ FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
 WHERE p.Name LIKE :searcht1 OR p.Category LIKE :searcht2
 ORDER BY p.Name;");
-  $stmt->execute($searcht,$searcht);
+  $stmt->execute([$searcht,$searcht]);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
