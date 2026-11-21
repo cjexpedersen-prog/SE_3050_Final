@@ -69,7 +69,7 @@ function getdata(fetchinfo) {
                 if (isNaN(document.getElementById("maxp").valueAsNumber)){
                         searchdata.maxp=999;
                 }else{
-                searchdata.maxp = document.getElementById("mnum").valueAsNumber};
+                searchdata.maxp = document.getElementById("maxp").valueAsNumber};
         }else if (fetchinfo==4){
                 if (searchdata.sterm = document.getElementById("query").value==''){
                         window.alert('The search box may not be empty.');
