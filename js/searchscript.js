@@ -105,8 +105,8 @@ function displayeddata(){
               displaydata ='<table><tr><th>Market ID</th><th>Market Name</th><th>Revenue</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.MarketID}</td><td>${i.MarketName}</td><td>${i.Revenue}</td><tr>`}
         }else if (displayform==12){
-              displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>Product ID</th><th>Units Sold</th></tr>'
-        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.UnitsSoldy}</td><tr>`}
+              displaydata ='<table><tr><th>ProductID</th><th>Product Name</th><th>Units Sold</th></tr>'
+        for(let i of ldata){displaydata+=`<tr><td>${i.ProductID}</td><td>${i.ProductName}</td><td>${i.UnitsSold}</td><tr>`}
         }else if (displayform==13){
               displaydata ='<table><tr><th>Order Status</th><th>Total Number</th></tr>';
                 for(let i of ldata){displaydata+=`<tr><td>${i.OrderStatus}</td><td>${i.NumberOfOrders}</td><tr>`}
