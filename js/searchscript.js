@@ -28,7 +28,7 @@ function functionChange(ufn){
         }else if (ufn==4){
                 document.getElementById("qbox").innerHTML=`<div class="search-row"><input type="text" id="query" placeholder="Search Market by City"></input><button id="func4b" onClick="getdata(4)">Search</button></div>`
         }else if (ufn==5){
-                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1" max="10" step="1" placeholder="Market ID"><button id="func5b" onClick="getdata(5)">List Vendors by MarketID</button></div>`
+                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1" max="10" step="1" value="1"><button id="func5b" onClick="getdata(5)">List Vendors by MarketID</button></div>`
         }else if (ufn==6){
                 document.getElementById("qbox").innerHTML=`<button id="func6b" onClick="getdata(6)">View Market contact and general information</button>`
         }else if (ufn==7){
@@ -60,9 +60,20 @@ function getdata(fetchinfo) {
         if (fetchinfo==2){
                 searchdata.sterm = document.getElementById("query").value
         } else if (fetchinfo==3){
+                if (searchdata.sterm = document.getElementById("query").value==''){
+                        window.alert('The search box may not be empty.');
+                        break;
+                }
                 searchdata.sterm = document.getElementById("query").value
-                searchdata.maxp = document.getElementById("mnum").valueAsNumber
+                if (isNaN(document.getElementById("mnum").valueAsNumber)){
+                        searchdata.maxp=999;
+                }else{
+                searchdata.maxp = document.getElementById("mnum").valueAsNumber};
         }else if (fetchinfo==4){
+                if (searchdata.sterm = document.getElementById("query").value==''){
+                        window.alert('The search box may not be empty.');
+                        break;
+                }
                 searchdata.sterm = document.getElementById("query").value
         }else if (fetchinfo==5){
                  searchdata.mnumber = document.getElementById("mnum").value
