@@ -24,7 +24,7 @@ function functionChange(ufn){
         }else if (ufn==2){
                 document.getElementById("qbox").innerHTML=`<div class="search-row"><input type="text" id="query" placeholder="Keyword search"></input><button id="func2b" onClick="getdata(2)">Search</button></div>`
         }else if (ufn==3){
-                document.getElementById("qbox").innerHTML=`<div class="search-row"><input type="text" id="query" placeholder="Search for Category (Vegetables, Greens, Fruits, Honey, Mushrooms, Bakery, Dairy, or Eggs)"><input  type="number" id="maxp" min="1" max="100" step="1" placeholder="Max Price"></input><button id="func3b" onClick="getdata(3)">Search</button></div>`
+                document.getElementById("qbox").innerHTML=`<div class="search-row"><input type="text" id="query" placeholder="Search for Category (Vegetables, Greens, Fruits, Honey, Mushrooms, Bakery, Dairy, or Eggs)"><input  type="number" id="maxp" min="1" max="100" step="1" value="99"></input><button id="func3b" onClick="getdata(3)">Search</button></div>`
         }else if (ufn==4){
                 document.getElementById("qbox").innerHTML=`<div class="search-row"><input type="text" id="query" placeholder="Search Market by City"></input><button id="func4b" onClick="getdata(4)">Search</button></div>`
         }else if (ufn==5){
@@ -34,7 +34,8 @@ function functionChange(ufn){
         }else if (ufn==7){
                 document.getElementById("qbox").innerHTML=`<button id="func7b" onClick="getdata(7)">View items in need of restock</button>`
         }else if (ufn==8){
-                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1001" max="1030" step="1" value="1001"><button id="func8b" onClick="getdata(8)">View Order Information</button></div>`
+                document.getElementById("qbox").innerHTML=`<div class="id-row"><input type="number" id="mnum" min="1001" max="1030" step="1" value="1001" ><button id="func8b" onClick="getdata(8)">View Order Information</button></div>`
+              
         }else if (ufn==9){
                 document.getElementById("qbox").innerHTML=`<button id="func9b" onClick="getdata(9)">View Order totals</button>`
         }else if (ufn==10){
