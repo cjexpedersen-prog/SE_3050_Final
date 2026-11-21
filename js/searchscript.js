@@ -82,12 +82,7 @@ async function submitdata(){
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if(xhr.readyState == 4 && xhr.status == 200){
-            
             sdata = xhr.responseText;
-              if (!xhr.ok){
-                console.error("Test failed : ",error);
-            }
-            else{
                 console.log(rdata);
                 console.log(sdata);
                 document.getElementById("lresults").textContent=sdata;
