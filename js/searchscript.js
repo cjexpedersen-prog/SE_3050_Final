@@ -70,7 +70,7 @@ function getdata(fetchinfo) {
         }else if (fetchinfo==8){
                 searchdata.ordernum = document.getElementById("mnum").value
         }
-    submitdata(fetchinfo);
+    submitdata();
         
 };
 function displayeddata(){
