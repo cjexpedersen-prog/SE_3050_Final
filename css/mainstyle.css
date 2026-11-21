@@ -1,26 +1,130 @@
 .mainpage{
     justify-content: center;
     text-align: center;
-    align-items: center;
     display: flex;
-    background:rgb(31, 28, 28);
+    background-color: #F2EDD0;
+    background-size: cover;
+    background-position: center;
     font-size: 1em;
 }
+
+#top{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #BF544B;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 50%;
+}
+
+h1{
+    color: #F2EDD0;
+    font-size: 5em;
+}
+
+.filters{
+    color:#F2EDD0
+}
+
+#qbox{
+    align-content:end;
+    width: auto;
+}
+
+#qbox .search-row {
+    display: flex;
+    width: 92%;
+    margin-inline: auto;
+}
+
+#qbox .search-row > input,
+#qbox .search-row > button {
+    box-sizing: border-box;
+    height: 40px;
+    margin: 1px;
+}
+
+#qbox .search-row > #query {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+}
+
+#qbox .search-row > #maxp {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+#qbox .search-row > button {
+    width: clamp(100px, 20%, 200px);
+    flex-shrink: 0;
+}
+
+#qbox .id-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#qbox .id-row > input,
+#qbox .id-row > button {
+    box-sizing: border-box;
+    height: 40px;
+    margin: 1px;
+}
+
+#qbox .id-row > input {
+    width: 90px;
+}
+
+#qbox .id-row > button {
+    width: 200px;
+}
+
+.report-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.report-buttons > button {
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
+    margin: 0;
+    padding: 6px 14px;
+    border: 1px solid #255937;
+    border-radius: 4px;
+    background-color: #255937;
+    color: #F2EDD0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+}
+
+.report-buttons > button:hover {
+    background-color: #1e482d;
+}
+
 #query{
     width: 50vw;
     min-width: fit-content;
     height: 3em;
-    margin: 3vw;
 }
-#qbox{
-    align-content:end;
-    background: gray;
-    width: auto;
+
+.price-label{
+    display: block;
+    margin-top: 6px;
 }
+
 #header{
     display: flex;
     justify-content:space-around;
-    color: greenyellow;
+    color: #D99446;
     margin: 3vw;
     min-width: fit-content;
     font-size: 1.5em;
@@ -48,17 +152,11 @@
 }
 #ResultL{
     width: 100vw;
-    border-top:4px solid blue;
 }
 h1{
  margin-top:3vw ;
 }
-.filters{
-    background-color: gray;
-}
-h1, h2{
-    color :yellowgreen
-}
+
 #uRlowL,#uRlow{
     
 }
@@ -80,3 +178,6 @@ button{
     width: 95vw;
     field-sizing: content;
 }
+
+
+

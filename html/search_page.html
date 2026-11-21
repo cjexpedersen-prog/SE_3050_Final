@@ -1,8 +1,8 @@
 <html>
 <!--This section creates and displays the webpage Title-->
  <title>House Helpdesk</title>
-<meta charset="UTF-8">
-<link href="../css/mainstyle.css" rel="stylesheet">
+ <meta charset="UTF-8">
+ <link href="../css/mainstyle.css" rel="stylesheet">
  <script src="../js/searchscript.js"></script>
 <!--Carter Pedersen,Started 10/1/2026, Laste Edited:11/18/2026 100% Hand coded. No AI Used.-->
 
@@ -12,15 +12,43 @@
     <!--main section of the page -->
     <body class="mainpage">
         <!--header section -->
-        <div id="header">
-            <h1>View Marketplace Data</h1>
-        </div>
-        <!--searchbox div -->
-        <div id="qbox">
-           <button id="func1b" onClick="getdata(1)">View all products</button>
+        <div id="top">
+            <div id="header">
+                <h1>Farmers Marketplace Data</h1>
+            </div>
+            <div class="filters">
+                <label id="filter-label">Search Function: </label>
+                <select id="searchf" name="searchf" aria-label="Search Function" onchange="functionChange(Number(this.value))">
+                    <option value="2" selected>Search product by keyword</option>
+                    <option value="3">Filter product by category and price ceiling</option>
+                    <option value="4">Find markets by city and show their operating hours</option>
+                    <option value="5">List vendors at a chosen market ID</option>
+                    <option value="8">Display the line items and extended price of a specific order</option>
+                </select>
+            </div>
+            <!--searchbox div -->
+            <div id="qbox"></div>
+            <!--buttons div -->
+            <div class="report-buttons">
+                <button type="button" onclick="getdata(1)">View All Products</button>
+                <button type="button" onclick="getdata(6)">View Market Contact Emails and Types</button>
+                <button type="button" onclick="getdata(7)">View Low-Stock Items</button>
+                <button type="button" onclick="getdata(9)">View Order Totals</button>
+                <button type="button" onclick="getdata(10)">View Vendor Revenue</button>
+                <button type="button" onclick="getdata(11)">View Total Paid Sales by Market</button>
+                <button type="button" onclick="getdata(12)">View Best-Sellers by Quantity</button>
+                <button type="button" onclick="getdata(13)">View Order Counts By Status</button>
+                <button type="button" onclick="getdata(14)">View Daily Revenue Trends</button>
+                <button type="button" onclick="getdata(15)">View Product and Stock Units by Vendor</button>
+            </div>
         </div>
         <div class="filters">
-            <h2>Search Function</h2>
+
+
+
+
+
+            <!--
             <table>
                 <tr>
                  <td><input type="radio" id="s1" name="searchf" value="1" checked="checked" onClick="functionChange(1)">
@@ -64,6 +92,8 @@
                  <label for="s15">Count products and stock units per vendor, including vendors with no products</label></td>
                 </tr>
             </table>
+            -->
+
         </div>
         <!-- displays formatted results -->
         <div class="ResultH" id="Results">
