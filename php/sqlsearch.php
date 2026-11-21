@@ -23,37 +23,33 @@ ORDER BY m.Name, p.Name;");
  } elseif ($sfuncv==2){ $stmt =$pdo -> prepare("SELECT p.ProductID, p.Name, p.Category, p.Price, v.Name AS VendorName
 FROM Products AS p
 JOIN Vendors AS v ON p.VendorID = v.VendorID
-WHERE p.Name LIKE :sterm OR p.Category LIKE :sterm
+WHERE p.Name LIKE ? OR p.Category LIKE ?
 ORDER BY p.Name;");
-  $stmt->bindParam(':sterm',$searcht);
-  $stmt->execute();
+  $stmt->execute($searcht, $searcht);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
    } elseif ($sfuncv==3){
    $stmt =$pdo -> prepare("SELECT ProductID, Name, Category, Price, InStockQuantity
 FROM Products
-WHERE Category = :sterm AND Price <= :maxp AND InStockQuantity > 0
+WHERE Category = ? AND Price <= ? AND InStockQuantity > 0
 ORDER BY Price ASC, Name;");
-   $stmt->bindParam(':sterm',$searcht);
-   $stmt->bomdParam(':maxp',$maxprice);
-$stmt->execute();
+
+$stmt->execute($searcht,$maxprice);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==4){
    $stmt =$pdo -> prepare("SELECT MarketID, Name, City, State, OperationHours, Phone
 FROM Markets
-WHERE City = :sterm
+WHERE City = ?
 ORDER BY Name;");
-   $stmt->bindParam(':sterm',$searcht);
-   $stmt->execute();
+   $stmt->execute($searcht);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==5){
    $stmt =$pdo -> prepare("SELECT v.VendorID, v.Name AS VendorName, v.Phone, v.OperationHours,
        m.Name AS MarketName
 FROM Vendors AS v
 JOIN Markets AS m ON v.MarketID = m.MarketID
-WHERE m.MarketID = :mnumber
+WHERE m.MarketID = ?
 ORDER BY v.Name;");
-   $stmt->bindParam(':mnumber',$mnumber);
-   $$stmt->execute();
+   $$stmt->execute($mnumber);
      $sresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
  }elseif ($sfuncv==6){
    $stmt =$pdo -> prepare("SELECT m.MarketID, m.Name, me.Email, mt.Type
