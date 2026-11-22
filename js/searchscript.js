@@ -174,3 +174,52 @@ async function trynew(){
         console.error("Test failed : ",error);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("preorder-form");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const productId = Number(
+            document.getElementById("preorder-product").value
+        );
+
+        const quantity = Number(
+            document.getElementById("preorder-quantity").value
+        );
+
+        const message = document.getElementById("preorder-message");
+
+        if (!Number.isSafeInteger(productId) ||
+            !Number.isSafeInteger(quantity) ||
+            productId < 1 || quantity < 1) {
+            message.textContent = "Enter a valid product ID and quantity.";
+            return;
+        }
+
+        try {
+            const response = await fetch("../php/preorder.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ productId, quantity })
+            });
+
+            const result = await response.json();
+
+            message.textContent = result.message;
+
+            if (response.ok && result.success) {
+                form.reset();
+            }
+        } catch (error) {
+            message.textContent =
+                "Unable to connect to the pre-order service.";
+        }
+    });
+});
+
