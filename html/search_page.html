@@ -97,6 +97,35 @@
             -->
 
         </div>
+     
+<!-- Pre-Order Section -->
+<div id="preorder-section">
+    <h2>Place a Product Pre-Order</h2>
+    <p>Enter the product ID and quantity to reserve a product.</p>
+
+    <form id="preorder-form">
+        <label for="preorder-product">Product ID:</label>
+        <input
+            type="number"
+            id="preorder-product"
+            min="1"
+            required
+        >
+
+        <label for="preorder-quantity">Quantity:</label>
+        <input
+            type="number"
+            id="preorder-quantity"
+            min="1"
+            required
+        >
+
+        <button type="submit">Place Pre-Order</button>
+    </form>
+
+    <p id="preorder-message" role="status"></p>
+</div>
+
         <!-- displays formatted results -->
        
         <div id="ResultL">
